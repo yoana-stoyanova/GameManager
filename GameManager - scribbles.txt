@@ -1,8 +1,7 @@
 users file:
 
-(username)(games + hours played)
-@ivan_peshev9
-Kortal Mombat 15
+@ivan_peshev9 [username]
+Kortal Mombat [game] 15 [hours played]
 Terraria 1
 Minecraft 34
 
@@ -10,11 +9,10 @@ Minecraft 34
 
 games file:
 
-(game)(price)
-Kortal Mombat 134.80
-Terraria 89.10
-Minecraft 20.99
-Legion 45.78
+#Kortal Mombat [game]
+134.80 [$]
+500 [Downloads]
+"sdhgwk xywiwuy" [info about the game]
 
 --------------------
 
@@ -23,22 +21,27 @@ methods:
 add username
 check if username is available
 add games to a username + hours played
-add games + price
-find most played game
-find most bought game
+add games + price + downloads + info
+find most played game [by hours]
+find most bought game [by username count]
 sort games by price (list output)
 sort users by most active (list output)
 sort users by most money spent (list output)
 show user information by username
+delete user
+
+[???] Update game (add new downloads, change info, change price)
+[???] Change username
+[???] delete game (deletes it from all usernames)
 
 --------------------
 
 plans:
 
-create an array with the usernames to check if they are available;
-turn users into arrays with their games;
-create an array with the games and their prices;
-create an array with the users and their hours played;
+use Swing
+
+create an array with User to check if a username is available;
+create an array with Game
 
 class User
 class Game
