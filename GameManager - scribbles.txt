@@ -9,7 +9,7 @@ Minecraft 34
 
 games file:
 
-#Kortal Mombat [game]
+Kortal Mombat [game]
 134.80 [$]
 500 [Downloads]
 "sdhgwk xywiwuy" [info about the game]
