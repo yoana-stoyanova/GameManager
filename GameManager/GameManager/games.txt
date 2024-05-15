@@ -1,0 +1,59 @@
+Minecraft
+20,99
+467
+"text"
+***
+Brawl Stars
+0.00
+123
+"text"
+***
+Outlast
+53,50
+67
+"text"
+***
+Stardew Valley
+12,99
+2
+"text"
+***
+We Happy Few
+34,89
+78
+"text"
+***
+Baldur's Gate
+78,99
+45
+"text"
+***
+That's Not My Neighbour
+0,00
+3
+"text"
+***
+Roblox
+9,99
+56
+"text"
+***
+Fortnite
+25,89
+233
+"text"
+***
+Phobia v1.5
+0,00
+1
+"text"
+***
+Poppy Playtime
+15,99
+26
+"text"
+***
+Outlast 2
+56,79
+9
+"text"
