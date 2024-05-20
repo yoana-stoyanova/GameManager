@@ -1,33 +1,35 @@
-users file:
+[DONE] users file:
 
 @ivan_peshev9 [username]
 Kortal Mombat [game] 15 [hours played]
 Terraria 1
 Minecraft 34
 
+[DONE] userlist...
 --------------------
 
-games file:
+[DONE] games file:
 
 Kortal Mombat [game]
 134.80 [$]
 500 [Downloads]
 "sdhgwk xywiwuy" [info about the game]
 
+[DONE] games list...
 --------------------
 
 methods:
 
-add username
-check if username is available
+[DONE] add username
+[DONE] check if username is available
 add games to a username + hours played
 add games + price + downloads + info
 find most played game [by hours]
 find most bought game [by username count]
-sort games by price (list output)
-sort users by most active (list output)
+[DONE] sort games by price (list output)
+[DONE] sort users by most active (list output)
 sort users by most money spent (list output)
-show user information by username
+[DONE] show user information by username
 delete user
 
 [???] Update game (add new downloads, change info, change price)
