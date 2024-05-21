@@ -25,7 +25,7 @@ methods:
 add games to a username + hours played
 add games + price + downloads + info
 find most played game [by hours]
-find most bought game [by username count]
+[DONE] find most bought game [by username count]
 [DONE] sort games by price (list output)
 [DONE] sort users by most active (list output)
 sort users by most money spent (list output)
