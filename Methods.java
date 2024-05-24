@@ -133,13 +133,16 @@ public class Methods {
         }
     }
 
-    public static void deleteUsername(String username){
+    public static void deleteUsername(Scanner input){
+
+        System.out.print("Enter username: ");
+        String username = input.next();
+
         File userFile = new File("users.txt");
         Scanner readUsers;
-        PrintWriter writer;
+
         try {
             readUsers = new Scanner(userFile);
-            writer = new PrintWriter(userFile);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -157,15 +160,16 @@ public class Methods {
             }
         }
 
-        writer.append("");
-        writer.flush();
+        readUsers.close();
 
+        PrintWriter writer = null;
         try {
-            Files.write(Paths.get("users.txt"), text.getBytes(), StandardOpenOption.APPEND);
-        } catch (IOException e) {
+            writer = new PrintWriter("users.txt");
+        } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-
+        writer.append(text);
+        writer.flush();
     }
 
     public static void showInfoByUsername(ArrayList<User> userList, String user){
