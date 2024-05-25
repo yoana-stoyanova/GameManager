@@ -133,7 +133,7 @@ public class Methods {
         }
     }
 
-    public static void deleteUsername(Scanner input){
+    public static void deleteUsername(Scanner input, ArrayList <User> userList){
 
         System.out.print("Enter username: ");
         String username = input.next();
@@ -170,6 +170,8 @@ public class Methods {
         }
         writer.append(text);
         writer.flush();
+
+        createUserList(userList);
     }
 
     public static void showInfoByUsername(ArrayList<User> userList, String user){
@@ -290,6 +292,20 @@ public class Methods {
     return true;
 }
 
+    public static boolean availableGameForUser(ArrayList<User> userList, String username, String gameName){
+        for(int i = 0; i < userList.size(); i++){
+            if(userList.get(i).username.equals(username)){
+                for(int j = 0; j < userList.get(i).userData.size(); j++){
+                    if(userList.get(i).userData.get(j).get(0).equals(gameName)){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void addGame(ArrayList<Game> gameList, Scanner input){
         System.out.print("Enter Game: ");
         String name = input.next();
@@ -320,6 +336,98 @@ public class Methods {
         } else {
             System.out.println("This Game already exists in the system.");
         }
+    }
+
+    public static void deleteGame(Scanner input, ArrayList<Game> gameList){
+
+        System.out.print("Enter Game: ");
+        String game = input.next();
+
+        File gameFile = new File("games.txt");
+        Scanner readGames;
+
+        try {
+            readGames = new Scanner(gameFile);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String text = "";
+
+        while(readGames.hasNextLine()){
+            String line = readGames.nextLine();
+            if(line.equals(game)){
+                line = readGames.nextLine();//price
+                line = readGames.nextLine();//downloads
+                line = readGames.nextLine();//description
+                line = readGames.nextLine();//separator
+
+            } else {
+                text = text + line + '\n';
+            }
+        }
+
+        readGames.close();
+
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("games.txt");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        writer.append(text);
+        writer.flush();
+
+        createGameList(gameList);
+    }
+
+    public static void addGameToUser(Scanner input, ArrayList<User> userList, ArrayList<Game> gameList){
+        System.out.print("Enter username: ");
+        String username = input.next();
+
+        System.out.print("Enter Game: ");
+        String game = input.next();
+
+        System.out.print("Enter Hours Played: ");
+        String hours = input.next();
+
+        File userFile = new File("users.txt");
+        Scanner readUsers;
+
+        try {
+            readUsers = new Scanner(userFile);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String text = "";
+
+        if(!availableUsername(userList, username) && !availableGameName(gameList, game) && availableGameForUser(userList, username, game)){
+            while(readUsers.hasNextLine()){
+                String line = readUsers.nextLine();
+                if(line.equals(username)){
+                    text = text + username + '\n' + game + '\n' + hours + '\n';
+                } else {
+                    text = text + line + '\n';
+                }
+            }
+
+            readUsers.close();
+
+            PrintWriter writer = null;
+            try {
+                writer = new PrintWriter("users.txt");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            writer.append(text);
+            writer.flush();
+            
+            createUserList(userList);
+        } else {
+            System.out.println("Invalid input. This user or Game may not exist in the system. This user may already have have this game.");
+        }
+
     }
 
 }
